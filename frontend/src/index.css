@@ -1,0 +1,40 @@
+.main {
+  margin-top: 3em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+form button {
+  padding: 10px;
+}
+.notes {
+  display: grid;
+  margin-top: 0;
+  padding: 0;
+  grid-template-columns: 1fr 1fr;
+}
+
+.notes h2 {
+  font-size: 2rem;
+  border-bottom: 2px solid #ccc;
+  margin: 0;
+  padding: 0;
+}
+
+.note-div {
+  margin-bottom: 20px;
+}
