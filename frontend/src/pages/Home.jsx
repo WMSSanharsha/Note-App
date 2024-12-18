@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 function Home() {
   const [notes, setNotes] = useState([]);
-  const [editNote, setEditNote] = useState(null); // State to manage the note being edited
+  const [editNote, setEditNote] = useState(null);
 
   useEffect(() => {
     const fetchNotes = async () => {
@@ -22,7 +22,6 @@ function Home() {
     const date = e.target.date.value;
 
     if (editNote) {
-      // If we're editing a note, send a PUT request to update it
       const response = await fetch(
         `http://localhost:5555/notes/${editNote._id}`,
         {
@@ -39,9 +38,8 @@ function Home() {
           note._id === editNote._id ? updatedNote.data : note
         )
       );
-      setEditNote(null); // Clear edit state after update
+      setEditNote(null);
     } else {
-      // If we're adding a new note, send a POST request
       const response = await fetch("http://localhost:5555/notes", {
         method: "POST",
         headers: {
@@ -60,12 +58,12 @@ function Home() {
     });
 
     if (response.ok) {
-      setNotes(notes.filter((note) => note._id !== id)); // Remove deleted note from state
+      setNotes(notes.filter((note) => note._id !== id));
     }
   };
 
   const handleEdit = (note) => {
-    setEditNote(note); // Set the note being edited
+    setEditNote(note);
   };
 
   return (
